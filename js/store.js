@@ -5,6 +5,7 @@ let data = localStorage.getItem("trips");
 
 if (data !== null) {
     trips = JSON.parse(data);
+    console.log("data")
 }
 else {
     let reponse = await fetch("./data/trips.json")
