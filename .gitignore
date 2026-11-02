@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 /trips.json
 /node_modules
+=======
+node_modules/
+data/trips.json
+>>>>>>> origin/main
