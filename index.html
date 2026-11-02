@@ -53,6 +53,7 @@
                 <div>
                     <label class="block text-sm font-medium mb-2">Rechercher un trajet</label>
                     <input
+                        id="ville"
                         type="text"
                         placeholder="Ville de départ ou destination..."
                         class="w-full border border-slate-300 rounded-md px-3 py-2 outline-none focus:border-[#0B2545]"
@@ -61,10 +62,10 @@
 
                 <div>
                     <label class="block text-sm font-medium mb-2">Filtrer par statut</label>
-                    <select class="w-full border border-slate-300 rounded-md px-3 py-2 bg-white">
-                        <option>Tous les trajets</option>
-                        <option>Disponible</option>
-                        <option>Complet</option>
+                    <select id="filtrer" class="w-full border border-slate-300 rounded-md px-3 py-2 bg-white">
+                        <option value="tout">Tous les trajets</option>
+                        <option value="disponible" >Disponible</option>
+                        <option value="complete">Complet</option>
                     </select>
                 </div>
 
@@ -74,186 +75,15 @@
         <section>
             <h3 class="text-lg font-semibold text-[#0B2545] mb-4">Tous les trajets</h3>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div id="tripsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                <div class="bg-white rounded-lg border border-slate-200 p-5">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm text-slate-500">Trajet 01</span>
-                        <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Disponible</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="font-semibold text-[#0B2545]">Safi</p>
-                            <p class="text-sm text-slate-500">07:30</p>
-                        </div>
-                        <span class="text-slate-400">→</span>
-                        <div class="text-right">
-                            <p class="font-semibold text-[#0B2545]">Youssoufia</p>
-                            <p class="text-sm text-slate-500">08:30</p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between text-sm">
-                        <span class="text-slate-500">Places libres: 16/20</span>
-                        <span class="font-semibold">25 DH</span>
-                    </div>
-
-                    <a href="cabine.html?id=1" class="block text-center bg-[#0B2545] text-white py-2 rounded-md mt-4 text-sm">
-                        Ouvrir la cabine
-                    </a>
-                </div>
-
-                <div class="bg-white rounded-lg border border-slate-200 p-5">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm text-slate-500">Trajet 02</span>
-                        <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Disponible</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="font-semibold text-[#0B2545]">Safi</p>
-                            <p class="text-sm text-slate-500">08:00</p>
-                        </div>
-                        <span class="text-slate-400">→</span>
-                        <div class="text-right">
-                            <p class="font-semibold text-[#0B2545]">Marrakech</p>
-                            <p class="text-sm text-slate-500">10:30</p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between text-sm">
-                        <span class="text-slate-500">Places libres: 8/20</span>
-                        <span class="font-semibold">90 DH</span>
-                    </div>
-
-                    <a href="cabine.html?id=2" class="block text-center bg-[#0B2545] text-white py-2 rounded-md mt-4 text-sm">
-                        Ouvrir la cabine
-                    </a>
-                </div>
-
-                <div class="bg-white rounded-lg border border-slate-200 p-5">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm text-slate-500">Trajet 03</span>
-                        <span class="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full">Complet</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="font-semibold text-[#0B2545]">Safi</p>
-                            <p class="text-sm text-slate-500">09:00</p>
-                        </div>
-                        <span class="text-slate-400">→</span>
-                        <div class="text-right">
-                            <p class="font-semibold text-[#0B2545]">Casablanca</p>
-                            <p class="text-sm text-slate-500">13:00</p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between text-sm">
-                        <span class="text-slate-500">Places libres: 0/20</span>
-                        <span class="font-semibold">140 DH</span>
-                    </div>
-
-                    <a href="cabine.html?id=3" class="block text-center bg-[#0B2545] text-white py-2 rounded-md mt-4 text-sm">
-                        Ouvrir la cabine
-                    </a>
-                </div>
-
-                <div class="bg-white rounded-lg border border-slate-200 p-5">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm text-slate-500">Trajet 04</span>
-                        <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Disponible</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="font-semibold text-[#0B2545]">Youssoufia</p>
-                            <p class="text-sm text-slate-500">09:15</p>
-                        </div>
-                        <span class="text-slate-400">→</span>
-                        <div class="text-right">
-                            <p class="font-semibold text-[#0B2545]">Marrakech</p>
-                            <p class="text-sm text-slate-500">11:00</p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between text-sm">
-                        <span class="text-slate-500">Places libres: 17/20</span>
-                        <span class="font-semibold">65 DH</span>
-                    </div>
-
-                    <a href="cabine.html?id=4" class="block text-center bg-[#0B2545] text-white py-2 rounded-md mt-4 text-sm">
-                        Ouvrir la cabine
-                    </a>
-                </div>
-
-                <div class="bg-white rounded-lg border border-slate-200 p-5">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm text-slate-500">Trajet 05</span>
-                        <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Disponible</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="font-semibold text-[#0B2545]">Youssoufia</p>
-                            <p class="text-sm text-slate-500">10:00</p>
-                        </div>
-                        <span class="text-slate-400">→</span>
-                        <div class="text-right">
-                            <p class="font-semibold text-[#0B2545]">Casablanca</p>
-                            <p class="text-sm text-slate-500">13:30</p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between text-sm">
-                        <span class="text-slate-500">Places libres: 20/20</span>
-                        <span class="font-semibold">110 DH</span>
-                    </div>
-
-                    <a href="cabine.html?id=5" class="block text-center bg-[#0B2545] text-white py-2 rounded-md mt-4 text-sm">
-                        Ouvrir la cabine
-                    </a>
-                </div>
-
-                <div class="bg-white rounded-lg border border-slate-200 p-5">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm text-slate-500">Trajet 06</span>
-                        <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Disponible</span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="font-semibold text-[#0B2545]">Marrakech</p>
-                            <p class="text-sm text-slate-500">11:30</p>
-                        </div>
-                        <span class="text-slate-400">→</span>
-                        <div class="text-right">
-                            <p class="font-semibold text-[#0B2545]">Casablanca</p>
-                            <p class="text-sm text-slate-500">14:30</p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-100 mt-4 pt-4 flex justify-between text-sm">
-                        <span class="text-slate-500">Places libres: 11/20</span>
-                        <span class="font-semibold">120 DH</span>
-                    </div>
-
-                    <a href="cabine.html?id=6" class="block text-center bg-[#0B2545] text-white py-2 rounded-md mt-4 text-sm">
-                        Ouvrir la cabine
-                    </a>
-                </div>
-
+ 
             </div>
         </section>
 
         <div id="pagination" class="flex justify-center items-center gap-2 mt-8">
-            <button class="px-3 py-2 bg-[#0B2545] text-white rounded-md text-sm">1</button>
-            <button class="px-3 py-2 border border-slate-300 rounded-md text-sm">2</button>
-            <button class="px-3 py-2 border border-slate-300 rounded-md text-sm">3</button>
-            <button class="px-3 py-2 border border-slate-300 rounded-md text-sm">4</button>
         </div>
-
+        <script type="module" src="./js/main-trajets.js"></script>
     </main>
 
 </body>
