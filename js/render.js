@@ -2,7 +2,6 @@ let currentPage = 1;
 let tripsPerPage = 6;
 
 export function renderTrips(trips) {
-    currentPage = 1;
     let startIndex = (currentPage - 1) * tripsPerPage;
     let endIndex = startIndex + tripsPerPage;
     let currentTrips = trips.slice(startIndex, endIndex);
@@ -15,7 +14,7 @@ export function renderTrips(trips) {
 
     currentTrips.forEach((trip) => {
         container.innerHTML += `
-            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+            <div class="bg-white p-5 rounded-xl shadow border border-slate-200">
                 <h2 class="text-lg font-bold text-slate-800">
                     ${trip.departure} → ${trip.destination}
                 </h2>
@@ -25,6 +24,7 @@ export function renderTrips(trips) {
                 <p class="text-orange-500 font-bold mt-3">
                     ${trip.price} DH
                 </p>
+                <a href="./cabine.html" class="block text-center bg-blue-900 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-800"> Voir la Cabine </a>
             </div>
         `;
     });
@@ -50,9 +50,7 @@ export function renderTrips(trips) {
 }
 export function filterTrips(trips, search, status) {
     return trips.filter((trip) => {
-        let matchSearch =
-            trip.departure.toLowerCase().includes(search) ||
-            trip.destination.toLowerCase().includes(search);
+        let matchSearch = trip.departure.toLowerCase().includes(search) || trip.destination.toLowerCase().includes(search);
 
         let matchStatus = true;
 

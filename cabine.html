@@ -18,9 +18,10 @@
         <img src="img/logo.png" alt="BusDirect" class="h-16 w-auto sm:h-20">
         <p class="border-l border-slate-200 pl-3 text-sm text-slate-500">Gestion des réservations</p>
       </div>
-      <div class="rounded-lg border border-slate-200 px-4 py-2 text-sm">
-        <span class="text-slate-500">Trajet :</span>
-        <span class="font-semibold text-[#0B2545]">Safi → Marrakech</span>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <p>Départ : <span id="trip-departre"></span></p>
+        <p>Arrive : <span id="trip-arrival"></span></p>
+        <p> Prix : <span id="trip-price"></span></p>
       </div>
     </div>
   </header>
@@ -47,8 +48,8 @@
 
           <div class="grid grid-cols-[1fr_1fr_1.5rem_1fr_1fr] gap-2">
 
-            <div data-seat="1" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">1</p><p class="truncate text-xs">Libre</p></div>
-            <div data-seat="2" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">2</p><p class="truncate text-xs">Libre</p></div>
+            <div data-seat="1" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">VIP : 1</p><p class="truncate text-xs">Libre</p></div>
+            <div data-seat="2" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">VIP : 2</p><p class="truncate text-xs">Libre</p></div>
             <div></div>
             <div data-seat="3" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">3</p><p class="truncate text-xs">Libre</p></div>
             <div data-seat="4" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">4</p><p class="truncate text-xs">Libre</p></div>
