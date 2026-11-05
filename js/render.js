@@ -24,7 +24,7 @@ export function renderTrips(trips) {
                 <p class="text-orange-500 font-bold mt-3">
                     ${trip.price} DH
                 </p>
-                <a href="./cabine.html" class="block text-center bg-blue-900 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-800"> Voir la Cabine </a>
+                <a href="./cabine.html?id=${trip.id}" class="block text-center bg-blue-900 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-800"> Voir la Cabine </a>
             </div>
         `;
     });
