@@ -59,6 +59,38 @@ export function filterTrips(trips, search, status) {
         return matchSearch && matchStatus;
     });
 }
+export function renderTrips(trips) {
+    let container = document.getElementById("tripsContainer");
+
+    container.innerHTML = "";
+
+    trips.forEach((trip) => {
+        container.innerHTML += `
+            <div class="bg-white p-5 rounded-lg border border-slate-200">
+                <h3 class="font-bold text-[#0B2545]">
+                    ${trip.departure} → ${trip.destination}
+                </h3>
+
+                <p class="text-sm text-slate-500 mt-2">
+                    ${trip.date} - ${trip.time}
+                </p>
+
+                <p class="mt-2">
+                    ${trip.reservations.length} / ${trip.capacity} places réservées
+                </p>
+
+                <p class="font-semibold mt-2">
+                    ${trip.price} DH
+                </p>
+
+                <a href="./cabine.html?id=${trip.id}"
+                   class="block text-center bg-[#0B2545] text-white rounded-md py-2 mt-4">
+                    Gérer les réservations
+                </a>
+            </div>
+        `;
+    });
+}
 
 export function renderAvailableSeats(trip) {
     let select = document.getElementById("reserver-siege");
