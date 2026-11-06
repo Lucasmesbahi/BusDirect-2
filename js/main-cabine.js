@@ -24,8 +24,9 @@ let btnAttente = document.getElementById("btn-ajouter-attente");
 btnAttente.addEventListener("click", () =>{
     let name = document.getElementById("attente-nom").value.trim();
     let phone = document.getElementById("attente-telephone").value;
-
-if (name === "") {
+    document.getElementById("attente-nom-error").textContent = "";
+document.getElementById("attente-tel-error").textContent = "";
+    if (name === "") {
     document.getElementById("attente-nom-error").textContent = "Le nom est obligatoire";
     return;
 }
@@ -34,12 +35,13 @@ if (name === "") {
         document.getElementById("attente-tel-error").textContent = "Numéro invalide";
         return;
     }
-    if (
-        trip.waitingLIst.some((passenger) => passenger.phone === phone) || trip.reservations.some((reservation) => reservation.phone === phone)
-    ) {
-        document.getElementById("attente-tel-error").textContent = "Ce numero existe deja"
-        return;
-    }
+if (
+    trip.waitingList.some((passenger) => passenger.phone === phone) ||
+    trip.reservations.some((reservation) => reservation.phone === phone)
+) {
+    document.getElementById("attente-tel-error").textContent = "Ce numero existe deja";
+    return;
+}
     trip.waitingList.push({
         name: name,
         phone: phone
@@ -52,7 +54,6 @@ if (name === "") {
 
     document.getElementById("attente-notification").textContent = "Ajouté à la liste d'attente"
 })
-
     let total = 0;
     trip.reservations.forEach((reservation) => {
         if (reservation.seat <= 4 ){
