@@ -59,12 +59,25 @@ export function filterTrips(trips, search, status) {
         return matchSearch && matchStatus;
     });
 }
-export function renderTrips(trips) {
+
+export function renderTrips(trips, page = 1) {
     let container = document.getElementById("tripsContainer");
+    let pagination = document.getElementById("pagination");
+
+    let totalPages = Math.ceil(trips.length / tripsPerPage);
+
+    currentPage = page;
+
+    if (currentPage > totalPages) {
+        currentPage = totalPages || 1;
+    }
+
+    let start = (currentPage - 1) * tripsPerPage;
+    let displayedTrips = trips.slice(start, start + tripsPerPage);
 
     container.innerHTML = "";
 
-    trips.forEach((trip) => {
+    displayedTrips.forEach((trip) => {
         container.innerHTML += `
             <div class="bg-white p-5 rounded-lg border border-slate-200">
                 <h3 class="font-bold text-[#0B2545]">
@@ -90,7 +103,30 @@ export function renderTrips(trips) {
             </div>
         `;
     });
+
+    pagination.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `
+            <button
+                data-page="${i}"
+                class="px-4 py-2 rounded-md ${
+                    i === currentPage
+                    ? "bg-[#0B2545] text-white"
+                    : "bg-white text-[#0B2545] border"
+                }">
+                ${i}
+            </button>
+        `;
+    }
+
+    pagination.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => {
+            renderTrips(trips, Number(button.dataset.page));
+        });
+    });
 }
+
 
 export function renderAvailableSeats(trip) {
     let select = document.getElementById("reserver-siege");
