@@ -95,32 +95,13 @@
           <p class="mb-4 text-xs text-slate-500">Ajoutez un nouveau passager au trajet.</p>
           <label for="reserver-nom" class="mb-1 block text-sm font-medium">Nom du passager</label>
           <input id="reserver-nom" type="text" placeholder="Ex. Fatima Zahra" class="mb-4 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#F59E0B] focus:outline-none">
+          <p id="nomerror" class="mb-4 text-sm text-red-600"></p>
           <label for="reserver-telephone" class="block text-sm font-medium">Numéro de Tel</label>
           <input id="reserver-telephone" type="tel" placeholder="06 (07) 00 00 00 00" class="mb-5 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focues:border-[#F59E0B] focus:outline-none" >
           <p id="telerror" class="mb-4 text-sm text-red-600"></p>
           <label for="reserver-siege" class="mb-1 block text-sm font-medium">Numéro du siège</label>
           <select id="reserver-siege" class="mb-5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-[#F59E0B] focus:outline-none">
-            <option>Attribution automatique</option>
-            <option>-VIP 1 -</option>
-            <option>-VIP 2-</option>
-            <option>-VIP 3-</option>
-            <option>-VIP 4-</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
-            <option>16</option>
-            <option>17</option>
-            <option>18</option>
-            <option>19</option>
-            <option>20</option>
+            <option value="">Attribution automatique</option>
           </select>
           <button id="reservation-btn" type="submit" class="w-full rounded-lg bg-[#0B2545] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#13396b]">Réserver</button>
         <div id="ajout" class="mt-2"></div>

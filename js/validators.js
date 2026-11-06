@@ -5,7 +5,7 @@ export function validereserve(trip,name,phone) {
         }
     }
 
-if (trip.reservations.some((reservation)=> reservation.name === name )) {
+if (trip.reservations.some((reservation)=> reservation.name === name.trim() )) {
     return {
         nameError: "CE nom est déja utilisé sur ce trajet."
     }
@@ -19,7 +19,7 @@ if (!/^0[67]\d{8}$/.test(phone)) {
 
 let phoneExists = trip.reservations.some((reservation) => reservation.phone === phone) ||
     trip.waitingList.some((passenger) => passenger.phone === phone);
-    
+
 if (phoneExists) {
     return {
         phoneError: "Ce numéro est déja utilse sur ce trajet"

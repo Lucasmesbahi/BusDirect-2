@@ -65,3 +65,32 @@ export function filterTrips(trips, search, status) {
         return matchSearch && matchStatus;
     });
 }
+
+export function renderSeats(trip) {
+    let seats = document.querySelectorAll(".seat");
+
+    seats.forEach((seatElement) => {
+        let seatNumber = Number(seatElement.dataset.seat);
+
+        let reservation = trip.reservations.find(
+            (reservation) => reservation.seat === seatNumber
+        )
+
+        if (reservation) {
+            seatElement.classList.remove(
+                "bg-[#DCFCE7]",
+                "bg-[#f8ffc5]",
+                "text-green-800",
+                "text-yellow-600"    
+            )
+                seatElement.classList.add(
+                "bg-[#FEE2E2]",
+                "text-red-700",
+            )
+
+            seatElement.querySelector("p:last-child").textContent = 
+                reservation.name;
+        }
+    }
+)
+}
