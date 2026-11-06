@@ -1,3 +1,4 @@
+export let trips = [];
 export async function loadTrips() {
     let data = localStorage.getItem("trips");
 
