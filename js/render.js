@@ -94,3 +94,23 @@ export function renderSeats(trip) {
     }
 )
 }
+export function renderAvailableSeats(trip) {
+    let select = document.getElementById("reserver-siege");
+    
+    select.innerHTML = `<option value="">Attribution automatique</option>`;
+
+    for (let i=1; i<=trip.capacity; i++) {
+        let occupied = trip.reservations.some(
+            (reservation) => reservation.seat === i
+        )
+        if (!occupied) {
+            let price = i <= 4 ? Math.round(trip.price * 1.1) : trip.price;
+
+            select.innerHTML += `
+            <option value="${i}">
+                Siege ${String(i).padStart(2, "0")} - ${i <= 4 ? "VIP" : "Normal"} ${price} DH
+                </option>
+            `
+        }
+    }
+}

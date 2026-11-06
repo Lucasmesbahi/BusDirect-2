@@ -1,6 +1,6 @@
 import {loadTrips, saveTrips } from "./store.js"
 import { validereserve } from "./validators.js";
-import { renderSeats } from "./render.js";
+import { renderSeats, renderAvailableSeats } from "./render.js";
 async function init() {
     let params = new URLSearchParams(window.location.search);
     let tripId = params.get("id")
@@ -16,6 +16,18 @@ async function init() {
     document.getElementById("trip-price").textContent = trip.price;
     let form = document.getElementById("reserveform");
     renderSeats(trip);
+    renderAvailableSeats(trip);
+    let total = 0;
+    trip.reservations.forEach((reservation) => {
+        if (reservation.seat <= 4 ){
+            total += Math.round(trip.price * 1.1);
+        }
+        else {
+            total += trip.price;
+        }
+    });
+
+    document.getElementById("chiffreaffaire").textContent = total
     document.getElementById("places-disponibles").textContent = trip.capacity - trip.reservations.length;
     form.addEventListener("submit" , (event) =>{
         event.preventDefault();
@@ -55,6 +67,20 @@ async function init() {
         trip.reservations = [...trip.reservations, nouvelle]    
         saveTrips(trips);
         renderSeats(trip);
+        renderAvailableSeats(trip);
+        let total = 0;
+            trip.reservations.forEach((reservation) => {
+        if (reservation.seat <= 4 ){
+            total += Math.round(trip.price * 1.1);
+        }
+        else {
+            total += trip.price;
+        }
+    });
+
+    document.getElementById("chiffreaffaire").textContent = total
+
+        form.reset();
         document.getElementById("places-disponibles").textContent = trip.capacity - trip.reservations.length;
         let notification = document.getElementById("ajout")
         notification.textContent = "Réservation confirmée"
