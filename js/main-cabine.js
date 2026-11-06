@@ -1,6 +1,7 @@
 import {loadTrips, saveTrips } from "./store.js"
 import { validereserve } from "./validators.js";
 import { renderSeats, renderAvailableSeats } from "./render.js";
+import { renderwaitinglist } from "./reservations.js";
 async function init() {
     let params = new URLSearchParams(window.location.search);
     let tripId = params.get("id")
@@ -17,6 +18,7 @@ async function init() {
     let form = document.getElementById("reserveform");
     renderSeats(trip);
     renderAvailableSeats(trip);
+    renderwaitinglist(trip);
     let total = 0;
     trip.reservations.forEach((reservation) => {
         if (reservation.seat <= 4 ){
@@ -91,3 +93,4 @@ async function init() {
         } )    
 }
     init();
+    
