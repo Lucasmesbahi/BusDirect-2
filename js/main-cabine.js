@@ -3,8 +3,8 @@ async function init() {
     let params = new URLSearchParams(window.location.search);
     let tripId = params.get("id")
 
-    let trips = loadTrips();
-    let trip = trips.find(() => String(trip.id) === tripId)
+    let trips = await loadTrips();
+    let trip = trips.find((trip) => String(trip.id) === tripId)
     if (!trip) {
         return
     }
