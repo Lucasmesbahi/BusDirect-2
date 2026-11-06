@@ -1,4 +1,7 @@
 export let trips = [];
+export function saveTrips(trips) {
+    localStorage.setItem("trips", JSON.stringify(trips));
+}
 export async function loadTrips() {
     let data = localStorage.getItem("trips");
 
